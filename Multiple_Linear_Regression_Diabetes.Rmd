@@ -1,0 +1,35 @@
+---
+title: "Multiple_Linear_Regression_Diabetes"
+author: "19523096_Bakar, 19523176_Ghazy"
+date: "10/24/2020"
+output: 
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library("mlbench")
+library(predict3d)
+```
+
+```{r}
+data("PimaIndiansDiabetes")
+```
+
+```{r}
+head(PimaIndiansDiabetes)
+```
+
+```{r}
+PimaIndiansDiabetes$diabetes = ifelse(PimaIndiansDiabetes$insulin==0, "positives","negatives")
+model_data <- lm(mass~pedigree+diabetes, data = PimaIndiansDiabetes)
+summary(model_data)
+```
+
+```{r}
+ggPredict(model_data)
+```
+
+```{r}
+ggPredict(model_data, show.error = TRUE, facet.modx = TRUE, show.text = FALSE)
+```
