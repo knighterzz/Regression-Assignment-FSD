@@ -1,0 +1,33 @@
+---
+title: "Multiple_Logistic_Regression_Heart"
+author: "19523096_Bakar, 19523176_Ghazy"
+date: "10/24/2020"
+output: 
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(predict3d)
+library(readr)
+heart <- read_csv("heart.csv")
+```
+
+```{r}
+head(heart)
+```
+
+```{r}
+data1 <- subset(heart, select = c(sex, exang, oldpeak))
+data1
+```
+
+```{r}
+model_fit2 <- glm(formula = exang~oldpeak+sex, data = heart, family = binomial)
+summary(model_fit2)
+```
+
+```{r}
+ggPredict(model_fit2)
+```
+
