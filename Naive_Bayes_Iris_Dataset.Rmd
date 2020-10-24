@@ -1,0 +1,27 @@
+---
+title: "Naive_Bayes_Diabetes"
+author: "19523096_Bakar, 19523176_Ghazy"
+date: "10/24/2020"
+output: 
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(mlbench)
+data("PimaIndiansDiabetes")
+```
+
+```{r}
+head(PimaIndiansDiabetes)
+```
+
+```{r}
+library(naivebayes)
+```
+
+```{r}
+model_fit <- naive_bayes(diabetes~., data = PimaIndiansDiabetes)
+model_fit
+```
+
