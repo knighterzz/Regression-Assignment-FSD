@@ -1,0 +1,38 @@
+---
+title: "Linear Regression"
+author: "19523096_Bakar, 19523176_Ghazy"
+date: "10/24/2020"
+output: 
+  html_document:
+    df_print: paged
+---
+```{r}
+data("airquality")
+attach(airquality)
+str(airquality)
+```
+
+```{r}
+used_data <- subset(airquality, select = c(Wind, Temp))
+used_data
+```
+
+```{r}
+linear_model <- lm(Wind ~ Temp, data = used_data)
+linear_model
+summary(linear_model)
+```
+```{r}
+plot(linear_model)
+abline(linear_model, col = 'red')
+```
+```{r}
+library(predict3d)
+```
+```{r}
+ggPredict(linear_model)
+```
+```{r}
+ggPredict(linear_model, xpos = 0.75, vjust = 1.5, show.error = TRUE)
+```
+
